@@ -1,5 +1,5 @@
 //Monsalud
-+#include <iostream>
+#include <iostream>
 using namespace std;
 void menu();
 class Stack {
