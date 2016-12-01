@@ -1,7 +1,6 @@
 //Monsalud
 #include <iostream>
 using namespace std;
-void menu();
 class Stack {
   public:
     Stack(int num) {
