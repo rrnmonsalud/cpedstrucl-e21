@@ -26,11 +26,11 @@ void loading(){
  	cout<<"\t\t\t\t";
  	for (int i=0;i<=15;i++)
  	{
-  cout<<b;
-  Sleep(100);
+  		cout<<b;
+  		Sleep(100);
  	}
  	system("color 8A");
-    system("cls"); 
+    	system("cls"); 
 }
 struct node{
 	int data;
