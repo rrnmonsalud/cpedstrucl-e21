@@ -113,7 +113,7 @@ int delete_val(int num){
         //free(temp);
         return 1;
       } 
-	  else{
+      else{
         prev -> next = temp -> next;
         free(temp);
         return 1;
