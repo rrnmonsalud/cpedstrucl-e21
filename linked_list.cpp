@@ -17,7 +17,7 @@ void firstscreen(){
 
 void loading(){
 	system("color 0A");
- 	cout<<"\n\n\n\t\t\t\tPlease wait while loading\n\n";
+ 	cout<<"\n\n\n\t\t\t\tHere it is!\n\n";
  	char a=177, b=219;
     cout<<"\t\t\t\t";
  	for (int i=0;i<=15;i++)
@@ -103,6 +103,19 @@ void addafter(int num, int loc){
   return;
 }
 
+void reverse(struct node** head_ref){
+	struct node* prev = NULL;
+	struct node* current = *head_ref;
+	struct node* next;
+	while(current != NULL){
+		next = current->next;
+		current->next=prev;
+		prev=current;
+		current=next;
+	}
+	*head_ref=prev;
+}
+
 int delete_val(int num){
   struct node * temp, * prev;
   temp = head;
@@ -110,7 +123,6 @@ int delete_val(int num){
     if (temp -> data == num){
       if (temp == head){
         head = temp -> next;
-        //free(temp);
         return 1;
       } 
       else{
@@ -159,7 +171,8 @@ void display(struct node * r) {
     return;
   }
   while (r != NULL) {
-    printf("%d ", r -> data);
+    cout << endl <<r -> data;
+    cout <<"\t\t\t\t"<<&r -> data;
     r = r -> next;
   }
   cout << endl;
@@ -182,7 +195,8 @@ int main(){
     cout << "5. Delete\n";
     cout << "6. Delete All\n";
     cout << "7. Search\n";
-    cout << "8. Exit\n";
+    cout << "8. Reverse\n";
+    cout << "9. Exit\n";
     cout << "======================\n";
     cout << "Enter your option: ";
     cin >> i;
@@ -247,7 +261,18 @@ int main(){
       	  break;
 	  	  
       case 8:
-        return 0; break;
+        if(head == NULL){
+        	cout << "\nList is empty.\n";
+		} 
+		else{
+			cout << "Element(s) in the list are: ";
+		}
+		reverse(&head);
+		display(n);
+		break;
+        
+      case 9:
+        return 0; break;  
       default:
         cout<<"Invalid Option!\n";
       }
