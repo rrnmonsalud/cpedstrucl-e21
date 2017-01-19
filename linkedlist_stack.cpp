@@ -11,6 +11,7 @@ struct node{
 }*top;
 void display();
 void push(int);
+void pop();
 void firstscreen();
 void loading();
 
@@ -22,8 +23,9 @@ int main(){
 		int choice;
 		cout << "Linked list implementation of Stack\n" << endl;
 		cout << "[1]-Push\n";
-		cout << "[2]-Traverse\n";
-		cout << "[3]-Exit\n" << endl;
+		cout << "[2]-Pop\n";
+		cout << "[3]-Traverse\n";
+		cout << "[4]-Exit\n" << endl;
 		cout << "Enter choice: ";
 		cin >> choice;
 		
@@ -33,11 +35,14 @@ int main(){
 					cout << "Enter n: ";
 					cin >> num;
 					push(num);
-				} break;	
+				} break;
 			case 2:{
+					pop();
+				} break;	
+			case 3:{
 					display();
 				} break;
-			case 3:{
+			case 4:{
 					exit(1);
 				} break;
 			default: cout << "Invalid Choice!"; break;
@@ -57,6 +62,19 @@ void push(int num){
 		p->next=top;
 	}
 	top=p;
+}
+
+void pop(){
+	if (top==NULL){
+		cout << "Stack is empty. ";
+	}
+	else{
+		node *tmp=top;
+		cout << "\nPopped value " << top->data << endl;
+		top=top->next;
+		tmp->next=NULL;
+		delete(tmp);
+	}
 }
 
 void display(){
