@@ -60,7 +60,7 @@ int main(){
 					continue;
 				}
 				cout << "Balanced AVL Tree: "<<endl;
-				avl.display(root/1);
+				avl.display(root,1);
 				break;
 			case 3:
 				cout << "Inorder Traversal: " <<endl;
@@ -107,13 +107,6 @@ avl_node *avlTree::rr_rotation(avl_node *parent){
 	temp = parent->right;
 	parent->right=temp->left;
 	temp->left=parent;
-	return temp;
-}
-avl_node *avlTree::ll_rotation(avl_node *parent){
-	avl_node *temp;
-	temp = parent->left;
-	parent->left=temp->right;
-	temp->right=parent;
 	return temp;
 }
 avl_node *avlTree::ll_rotation(avl_node *parent){
@@ -178,8 +171,9 @@ void avlTree::display(avl_node *ptr, int level){
 			cout << "Root -> ";
 		for (i=0; i<level && ptr != root; i++){
 			cout << "        ";
-		cout << ptr->data;
-		display(ptr->left,level+1);	
+			cout << ptr->data;
+			display(ptr->left,level+1);	
+		}
 	}
 }
 void avlTree::inorder(avl_node *tree){
